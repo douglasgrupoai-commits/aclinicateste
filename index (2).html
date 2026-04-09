@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clínica Estética Bella Vita | Jardim Paulista – São Paulo</title>
+  <meta name="description" content="Clínica de estética avançada em Jardim Paulista, SP. Botox, preenchimento labial, limpeza de pele, drenagem linfática e muito mais. Agende sua avaliação gratuita!" />
+  <meta name="keywords" content="clínica estética, botox, preenchimento labial, limpeza de pele, Jardim Paulista, São Paulo" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --rose:#B76E79; --rose-lt:#f2dde0; --rose-dk:#8a4f59;
+      --gold:#C9A84C; --gold-lt:#f5edcc; --gold-dk:#8f6e1e;
+      --dark:#1e1714; --mid:#4a3f3b; --gray:#7a6e6b;
+      --light:#faf7f5; --white:#ffffff; --border:rgba(183,110,121,0.15);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family:'DM Sans',sans-serif; background:var(--white); color:var(--dark); overflow-x:hidden; }
+    h1,h2,h3,h4 { font-family:'Cormorant Garamond',serif; }
+    img { display:block; width:100%; object-fit:cover; }
+
+    /* NAV */
+    nav { position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 6%;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:box-shadow .4s; }
+    nav.scrolled { box-shadow:0 4px 30px rgba(183,110,121,.10); }
+    .logo { display:flex;align-items:center;gap:12px;text-decoration:none; }
+    .logo-mark { width:44px;height:44px;border-radius:50%;background:var(--dark);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;color:var(--gold);letter-spacing:1px; }
+    .logo-text { font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--dark);line-height:1.1; }
+    .logo-text span { display:block;font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:3px;color:var(--rose);font-weight:500;text-transform:uppercase; }
+    .nav-links { display:flex;gap:2rem;list-style:none;align-items:center; }
+    .nav-links a { text-decoration:none;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mid);font-weight:500;transition:color .2s; }
+    .nav-links a:hover { color:var(--rose); }
+    .nav-cta { background:var(--rose);color:var(--white)!important;padding:11px 24px;border-radius:50px;transition:background .2s!important; }
+    .nav-cta:hover { background:var(--rose-dk)!important; }
+    .hamburger { display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px; }
+    .hamburger span { width:24px;height:2px;background:var(--dark);border-radius:2px; }
+
+    /* HERO */
+    #hero { height:100vh;min-height:700px;display:grid;grid-template-columns:1fr 1fr;padding-top:76px;overflow:hidden; }
+    .hero-left { display:flex;flex-direction:column;justify-content:center;padding:4rem 5% 4rem 6%;background:var(--light);position:relative;z-index:2; }
+    .hero-right { position:relative;overflow:hidden; }
+    .hero-right img { width:100%;height:100%;object-fit:cover; }
+    .hero-right::after { content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--light) 0%,transparent 25%); }
+    .hero-badge { display:inline-flex;align-items:center;gap:8px;background:var(--rose-lt);color:var(--rose-dk);font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;padding:8px 18px;border-radius:50px;margin-bottom:1.75rem;width:fit-content; }
+    .hero-badge::before { content:'';width:5px;height:5px;border-radius:50%;background:var(--rose); }
+    .hero-left h1 { font-size:clamp(2.6rem,4.5vw,4.2rem);line-height:1.1;color:var(--dark);margin-bottom:1.25rem; }
+    .hero-left h1 em { font-style:italic;color:var(--rose); }
+    .hero-left p { font-size:1rem;color:var(--gray);line-height:1.85;margin-bottom:2.5rem;max-width:440px; }
+    .hero-btns { display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem; }
+    .btn-rose { display:inline-flex;align-items:center;gap:10px;background:var(--rose);color:var(--white);padding:15px 30px;border-radius:50px;text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.3px;transition:background .2s,transform .2s; }
+    .btn-rose:hover { background:var(--rose-dk);transform:translateY(-2px); }
+    .btn-outline { display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--dark);padding:15px 28px;border-radius:50px;text-decoration:none;font-size:14px;font-weight:500;border:1.5px solid rgba(30,23,20,.25);transition:border-color .2s,color .2s; }
+    .btn-outline:hover { border-color:var(--rose);color:var(--rose); }
+    .hero-stats { display:flex;gap:2.5rem; }
+    .stat-n { font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--rose);line-height:1; }
+    .stat-l { font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--gray);margin-top:4px; }
+    .hero-awards { position:absolute;bottom:2rem;right:2rem;z-index:5;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-radius:16px;padding:1rem 1.25rem;display:flex;align-items:center;gap:12px;box-shadow:0 8px 30px rgba(0,0,0,0.08);min-width:200px; }
+    .award-stars { color:var(--gold);font-size:14px;letter-spacing:2px; }
+    .award-text { font-size:12px;color:var(--mid);line-height:1.5; }
+    .award-text strong { font-weight:600;color:var(--dark);font-size:13px; }
+
+    /* BASE */
+    section { padding:100px 6%; }
+    .sec-label { display:inline-block;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--rose);font-weight:600;margin-bottom:.75rem; }
+    .sec-title { font-size:clamp(2rem,3.5vw,3rem);color:var(--dark);line-height:1.2;margin-bottom:1rem; }
+    .sec-sub { font-size:1rem;color:var(--gray);line-height:1.85;max-width:520px; }
+    .sec-head { margin-bottom:4rem; }
+    .sec-head-center { text-align:center; }
+    .sec-head-center .sec-sub { margin:0 auto; }
+
+    /* SOBRE */
+    #sobre { background:var(--dark);padding:0;overflow:hidden; }
+    .sobre-grid { display:grid;grid-template-columns:1fr 1fr;min-height:600px; }
+    .sobre-img-col { position:relative;min-height:500px; }
+    .sobre-img-col img { position:absolute;inset:0;width:100%;height:100%;object-fit:cover; }
+    .sobre-img-overlay { position:absolute;inset:0;background:linear-gradient(to right,transparent 60%,var(--dark) 100%); }
+    .sobre-content-col { display:flex;flex-direction:column;justify-content:center;padding:5rem 6% 5rem 4rem;color:var(--white); }
+    .sobre-content-col .sec-label { color:var(--gold); }
+    .sobre-content-col .sec-title { color:var(--white); }
+    .sobre-content-col .sec-sub { color:rgba(255,255,255,0.65);margin-bottom:2rem; }
+    .sobre-checks { display:flex;flex-direction:column;gap:1rem;margin-bottom:2.5rem; }
+    .check-item { display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(255,255,255,0.8); }
+    .check-box { width:22px;height:22px;border-radius:6px;background:rgba(201,168,76,0.15);border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--gold);flex-shrink:0; }
+    .sobre-nums { display:flex;gap:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1); }
+    .snum-n { font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--gold);line-height:1; }
+    .snum-l { font-size:11px;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:1px;margin-top:4px; }
+
+    /* DESTAQUE */
+    #destaque { background:var(--light);padding:0;overflow:hidden; }
+    .destaque-grid { display:grid;grid-template-columns:1fr 1fr;min-height:620px; }
+    .destaque-content { display:flex;flex-direction:column;justify-content:center;padding:5rem 5% 5rem 6%; }
+    .destaque-tag { display:inline-flex;align-items:center;gap:6px;background:var(--gold-lt);color:var(--gold-dk);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600;padding:6px 16px;border-radius:50px;margin-bottom:1.25rem;width:fit-content; }
+    .destaque-content h2 { font-size:clamp(2rem,3.5vw,3rem);color:var(--dark);margin-bottom:1rem;line-height:1.15; }
+    .destaque-content p { color:var(--gray);line-height:1.85;margin-bottom:1.75rem; }
+    .feat-list { display:flex;flex-direction:column;gap:14px;margin-bottom:2.5rem; }
+    .feat-item { display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--mid); }
+    .feat-dot { width:26px;height:26px;border-radius:8px;background:var(--rose);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;margin-top:1px; }
+    .destaque-img-col { position:relative;overflow:hidden; }
+    .destaque-img-col img { position:absolute;inset:0;width:100%;height:100%;object-fit:cover; }
+    .destaque-img-col::before { content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(to left,transparent 60%,var(--light) 100%); }
+    .promo-badge { position:absolute;bottom:2.5rem;left:2.5rem;z-index:5;background:var(--rose);color:#fff;border-radius:18px;padding:1.25rem 1.5rem;text-align:center;min-width:170px; }
+    .promo-badge .pb-main { font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;line-height:1.1; }
+    .promo-badge .pb-sub { font-size:11px;letter-spacing:1.5px;text-transform:uppercase;margin-top:5px;opacity:.85; }
+
+    /* SERVIÇOS */
+    #servicos { background:var(--white); }
+    .servicos-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem; }
+    .servico-card { border-radius:20px;overflow:hidden;border:1px solid var(--border);transition:transform .35s,box-shadow .35s;cursor:default; }
+    .servico-card:hover { transform:translateY(-8px);box-shadow:0 20px 50px rgba(183,110,121,0.13); }
+    .sc-img { height:180px;overflow:hidden;position:relative; }
+    .sc-img img { width:100%;height:100%;object-fit:cover;transition:transform .5s; }
+    .servico-card:hover .sc-img img { transform:scale(1.07); }
+    .sc-body { padding:1.25rem 1.25rem 1.5rem; }
+    .sc-icon { font-size:20px;margin-bottom:.5rem; }
+    .sc-body h3 { font-size:1.05rem;font-weight:600;color:var(--dark);margin-bottom:.4rem; }
+    .sc-body p { font-size:12.5px;color:var(--gray);line-height:1.65; }
+
+    /* DIFERENCIAIS */
+    #diferenciais { background:var(--dark); }
+    #diferenciais .sec-label { color:var(--gold); }
+    .dif-layout { display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center; }
+    .dif-img-col { position:relative; }
+    .dif-img-wrap { border-radius:200px 200px 120px 120px;overflow:hidden;height:560px; }
+    .dif-img-wrap img { width:100%;height:100%;object-fit:cover; }
+    .dif-float { position:absolute;bottom:-20px;right:-20px;background:var(--gold);color:var(--dark);border-radius:20px;padding:1.5rem 1.75rem;text-align:center; }
+    .dif-float .dfn { font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;line-height:1; }
+    .dif-float .dfl { font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;margin-top:5px; }
+    .dif-items { display:flex;flex-direction:column;gap:1.5rem; }
+    .dif-item { display:flex;gap:1.25rem;padding:1.5rem;border-radius:16px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.03);transition:background .3s,border-color .3s; }
+    .dif-item:hover { background:rgba(183,110,121,0.08);border-color:rgba(183,110,121,0.2); }
+    .dif-num { font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--rose);line-height:1;flex-shrink:0; }
+    .dif-txt h4 { font-size:1rem;font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--white);margin-bottom:.35rem; }
+    .dif-txt p { font-size:13px;color:rgba(255,255,255,0.5);line-height:1.7; }
+
+    /* DEPOIMENTOS */
+    #depoimentos { background:var(--light); }
+    .dep-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem; }
+    .dep-card { background:var(--white);border-radius:22px;padding:2rem;border:1px solid var(--border);position:relative;overflow:hidden; }
+    .dep-card::before { content:'"';font-family:'Cormorant Garamond',serif;font-size:7rem;line-height:1;color:var(--rose-lt);position:absolute;top:-.5rem;left:1.25rem; }
+    .dep-stars { color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:.85rem; }
+    .dep-text { font-size:14px;color:var(--gray);line-height:1.85;font-style:italic;padding-top:1.5rem;margin-bottom:1.5rem; }
+    .dep-author { display:flex;align-items:center;gap:12px; }
+    .dep-av { width:42px;height:42px;border-radius:50%;background:var(--rose-lt);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;color:var(--rose-dk); }
+    .dep-name { font-size:14px;font-weight:600;color:var(--dark); }
+    .dep-via { font-size:11px;color:var(--gray);letter-spacing:.5px; }
+
+    /* GALERIA */
+    #galeria { background:var(--white);padding:80px 0; }
+    #galeria .sec-head { padding:0 6% 3rem; }
+    .galeria-strip { display:grid;grid-template-columns:2fr 1fr 1fr 2fr;gap:6px;height:400px; }
+    .galeria-strip > div { overflow:hidden; }
+    .galeria-strip img { width:100%;height:100%;object-fit:cover;transition:transform .4s; }
+    .galeria-strip > div:hover img { transform:scale(1.05); }
+    .gal-col2 { display:grid;grid-template-rows:1fr 1fr;gap:6px; }
+
+    /* LOCALIZAÇÃO */
+    #localizacao { background:var(--dark);padding:0;overflow:hidden; }
+    .loc-grid { display:grid;grid-template-columns:1fr 1.4fr;min-height:640px; }
+    .loc-info { display:flex;flex-direction:column;justify-content:center;padding:5rem 4rem 5rem 6%;color:var(--white); }
+    .loc-info .sec-label { color:var(--gold); }
+    .loc-info .sec-title { color:var(--white);margin-bottom:.75rem; }
+    .loc-info .sec-sub { color:rgba(255,255,255,0.55);margin-bottom:2.5rem; }
+    .loc-block { margin-bottom:1.75rem; }
+    .loc-block h5 { font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.6rem; }
+    .loc-block p { font-size:14.5px;color:rgba(255,255,255,0.75);line-height:1.8; }
+    .pay-tags { display:flex;flex-wrap:wrap;gap:8px; }
+    .pay-tag { background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.75);padding:6px 14px;border-radius:50px;font-size:12px; }
+    .loc-btns { display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem; }
+    .btn-wpp { display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:13px 26px;border-radius:50px;text-decoration:none;font-size:14px;font-weight:600;transition:background .2s,transform .2s; }
+    .btn-wpp:hover { background:#1aad54;transform:translateY(-2px); }
+    .btn-rota { display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.85);padding:13px 26px;border-radius:50px;text-decoration:none;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.15);transition:all .2s;cursor:pointer;font-family:'DM Sans',sans-serif; }
+    .btn-rota:hover { background:rgba(255,255,255,0.14); }
+    .loc-map-col { position:relative; }
+    #map { width:100%;height:100%;min-height:640px;border:0;filter:saturate(0.7) brightness(0.9); }
+    .map-overlay-pin { position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-radius:16px;padding:1rem 1.5rem;display:flex;align-items:center;gap:12px;box-shadow:0 8px 32px rgba(0,0,0,0.2);z-index:10;white-space:nowrap; }
+    .pin-icon { font-size:22px; }
+    .pin-text strong { display:block;font-size:13px;color:var(--dark);font-weight:600; }
+    .pin-text span { font-size:12px;color:var(--gray); }
+    #rota-status { position:absolute;top:1rem;left:50%;transform:translateX(-50%);background:rgba(30,23,20,0.88);color:#fff;padding:.65rem 1.5rem;border-radius:50px;font-size:13px;display:none;z-index:20;backdrop-filter:blur(8px);white-space:nowrap; }
+
+    /* CTA */
+    #cta { background:linear-gradient(135deg,var(--rose) 0%,var(--rose-dk) 100%);color:#fff;text-align:center;padding:100px 6%; }
+    #cta .sec-title { color:#fff;margin-bottom:.75rem; }
+    #cta .sec-sub { color:rgba(255,255,255,0.8);margin:0 auto 2.5rem; }
+    .btn-white { display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--rose-dk);padding:17px 40px;border-radius:50px;text-decoration:none;font-size:15px;font-weight:700;transition:transform .2s,box-shadow .2s; }
+    .btn-white:hover { transform:translateY(-3px);box-shadow:0 14px 36px rgba(0,0,0,0.18); }
+
+    /* RODAPÉ */
+    footer { background:#130f0d;color:rgba(255,255,255,0.4);padding:4rem 6% 2.5rem; }
+    .footer-grid { display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:3rem; }
+    .footer-desc { font-size:13px;line-height:1.85;color:rgba(255,255,255,0.35);margin-top:1rem; }
+    .fc h5 { font-family:'Cormorant Garamond',serif;font-size:16px;color:rgba(255,255,255,0.8);margin-bottom:1rem; }
+    .fc a,.fc p { display:block;font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;line-height:2.2;transition:color .2s; }
+    .fc a:hover { color:var(--rose); }
+    .footer-bottom { border-top:1px solid rgba(255,255,255,0.06);padding-top:1.5rem;display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,0.2); }
+
+    /* FLOAT WPP */
+    .wpp-float { position:fixed;bottom:28px;right:28px;z-index:999;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 6px 24px rgba(37,211,102,0.45);transition:transform .3s; }
+    .wpp-float:hover { transform:scale(1.1); }
+    .wpp-float svg { width:28px;height:28px;fill:#fff; }
+
+    /* FADE */
+    .fi { opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease; }
+    .fi.vis { opacity:1;transform:translateY(0); }
+
+    /* RESPONSIVE */
+    @media(max-width:1100px){ .servicos-grid { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:900px){
+      .nav-links { display:none; }
+      .hamburger { display:flex; }
+      #hero { grid-template-columns:1fr;height:auto;min-height:100vh; }
+      .hero-right { height:340px; }
+      .sobre-grid,.destaque-grid,.loc-grid { grid-template-columns:1fr; }
+      .sobre-img-col { min-height:320px; }
+      .dif-layout { grid-template-columns:1fr; }
+      .dif-img-col { display:none; }
+      .dep-grid { grid-template-columns:1fr; }
+      .footer-grid { grid-template-columns:1fr;gap:2rem; }
+      .galeria-strip { grid-template-columns:1fr 1fr;height:auto; }
+      .galeria-strip > div:last-child { display:none; }
+      .loc-map-col { min-height:380px; }
+      #map { min-height:380px; }
+    }
+    @media(max-width:600px){
+      section { padding:70px 5%; }
+      .hero-left { padding:3rem 5%; }
+      .hero-stats { gap:1.5rem; }
+      .servicos-grid { grid-template-columns:1fr; }
+      .footer-bottom { flex-direction:column;gap:.5rem;text-align:center; }
+      .galeria-strip { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="logo">
+    <div class="logo-mark">BV</div>
+    <div class="logo-text">Bella Vita<span>Clínica Estética</span></div>
+  </a>
+  <ul class="nav-links" id="navlinks">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#diferenciais">Diferenciais</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a href="#localizacao">Localização</a></li>
+    <li><a class="nav-cta" href="https://wa.me/5511998743210?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avaliação%20gratuita." target="_blank" rel="noopener">Agendar</a></li>
+  </ul>
+  <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left fi">
+    <div class="hero-badge">Clínica Estética Avançada · SP</div>
+    <h1>Desperte a sua<br><em>beleza natural</em></h1>
+    <p>Tratamentos personalizados com profissionais certificados internacionalmente. Resultados reais, cuidado genuíno e tecnologia de ponta no Jardim Paulista.</p>
+    <div class="hero-btns">
+      <a class="btn-rose" href="https://wa.me/5511998743210?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avaliação%20gratuita." target="_blank" rel="noopener">✨ Avaliação gratuita</a>
+      <a class="btn-outline" href="#servicos">Ver serviços ↓</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-n">500+</div><div class="stat-l">Clientes</div></div>
+      <div><div class="stat-n">5★</div><div class="stat-l">Google</div></div>
+      <div><div class="stat-n">10+</div><div class="stat-l">Tratamentos</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1200&q=85&fit=crop&crop=center" alt="Tratamento estético profissional na Bella Vita" loading="eager" />
+    <div class="hero-awards">
+      <div>
+        <div class="award-stars">★★★★★</div>
+        <div class="award-text"><strong>Nota 5.0 no Google</strong><br>+120 avaliações</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="sobre-grid">
+    <div class="sobre-img-col fi">
+      <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=900&q=85&fit=crop&crop=center" alt="Ambiente Bella Vita" />
+      <div class="sobre-img-overlay"></div>
+    </div>
+    <div class="sobre-content-col fi">
+      <div class="sec-label">Sobre nós</div>
+      <h2 class="sec-title">Beleza com<br>ciência e cuidado</h2>
+      <p class="sec-sub">A Bella Vita é uma clínica de estética avançada localizada no coração do Jardim Paulista, em São Paulo. Nossa missão é oferecer tratamentos que realçam a beleza natural de cada cliente com segurança, tecnologia e atendimento humanizado.</p>
+      <div class="sobre-checks">
+        <div class="check-item"><div class="check-box">✓</div>Profissionais com certificação internacional</div>
+        <div class="check-item"><div class="check-box">✓</div>Produtos importados com registro na ANVISA</div>
+        <div class="check-item"><div class="check-box">✓</div>Ambiente climatizado e exclusivo</div>
+        <div class="check-item"><div class="check-box">✓</div>Atendimento completamente personalizado</div>
+        <div class="check-item"><div class="check-box">✓</div>Resultado visível desde a primeira sessão</div>
+      </div>
+      <div class="sobre-nums">
+        <div><div class="snum-n">8+</div><div class="snum-l">Anos no mercado</div></div>
+        <div><div class="snum-n">500+</div><div class="snum-l">Clientes felizes</div></div>
+        <div><div class="snum-n">100%</div><div class="snum-l">Satisfação</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESTAQUE: BOTOX -->
+<section id="destaque">
+  <div class="destaque-grid">
+    <div class="destaque-content fi">
+      <div class="destaque-tag">⭐ Procedimento em Destaque</div>
+      <h2>Botox &amp;<br>Preenchimento Labial</h2>
+      <p>Aplicação realizada por profissional certificada com técnica precisa para um resultado completamente natural, harmonioso e duradouro. Sem exageros — apenas a melhor versão de você.</p>
+      <div class="feat-list">
+        <div class="feat-item"><div class="feat-dot">✓</div>Profissional certificada internacionalmente</div>
+        <div class="feat-item"><div class="feat-dot">✓</div>Produtos importados com registro na ANVISA</div>
+        <div class="feat-item"><div class="feat-dot">✓</div>Resultado natural e duradouro</div>
+        <div class="feat-item"><div class="feat-dot">✓</div>Avaliação gratuita antes do procedimento</div>
+      </div>
+      <a class="btn-rose" href="https://wa.me/5511998743210?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20Botox%20e%20Preenchimento." target="_blank" rel="noopener">💬 Agendar pelo WhatsApp</a>
+    </div>
+    <div class="destaque-img-col fi">
+      <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=900&q=85&fit=crop&crop=center" alt="Procedimento de harmonização facial" />
+      <div class="promo-badge">
+        <div class="pb-main">Avaliação<br>Gratuita</div>
+        <div class="pb-sub">Agende já!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="sec-head fi">
+    <div class="sec-label">O que oferecemos</div>
+    <h2 class="sec-title">Nossos Serviços</h2>
+    <p class="sec-sub">Tratamentos completos para cuidar de você de cabeça a pé, com qualidade e conforto.</p>
+  </div>
+  <div class="servicos-grid">
+    <div class="servico-card fi">
+      <div class="sc-img"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=80&fit=crop&crop=center" alt="Limpeza de pele" /></div>
+      <div class="sc-body"><div class="sc-icon">🌿</div><h3>Limpeza de Pele Profunda</h3><p>Hidratação, extração e renovação para uma pele radiante e saudável.</p></div>
+    </div>
+    <div class="servico-card fi">
+      <div class="sc-img"><img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&q=80&fit=crop&crop=center" alt="Botox" /></div>
+      <div class="sc-body"><div class="sc-icon">💉</div><h3>Botox &amp; Preenchimento Labial</h3><p>Rejuvenescimento facial com resultado natural e duradouro.</p></div>
+    </div>
+    <div class="servico-card fi">
+      <div class="sc-img"><img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=80&fit=crop&crop=center" alt="Drenagem" /></div>
+      <div class="sc-body"><div class="sc-icon">🌊</div><h3>Drenagem Linfática</h3><p>Reduz inchaço, melhora a circulação e modela o corpo com suavidade.</p></div>
+    </div>
+    <div class="servico-card fi">
+      <div class="sc-img"><img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&q=80&fit=crop&crop=center" alt="Laser" /></div>
+      <div class="sc-body"><div class="sc-icon">✨</div><h3>Depilação a Laser</h3><p>Remoção permanente e indolor dos pelos com tecnologia avançada.</p></div>
+    </div>
+    <div class="servico-card fi">
+      <div class="sc-img"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80&fit=crop&crop=faces" alt="Manchas" /></div>
+      <div class="sc-body"><div class="sc-icon">🔬</div><h3>Tratamento para Manchas</h3><p>Clareamento de manchas e uniformização do tom da pele.</p></div>
+    </div>
+    <div class="servico-card fi">
+      <div class="sc-img"><img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&q=80&fit=crop&crop=center" alt="Massagem" /></div>
+      <div class="sc-body"><div class="sc-icon">💆</div><h3>Massagem Modeladora</h3><p>Definição do contorno corporal e combate à celulite.</p></div>
+    </div>
+    <div class="servico-card fi">
+      <div class="sc-img"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80&fit=crop&crop=center" alt="Sobrancelhas" /></div>
+      <div class="sc-body"><div class="sc-icon">👁️</div><h3>Design de Sobrancelhas</h3><p>Formato personalizado que valoriza e enquadra o seu rosto.</p></div>
+    </div>
+    <div class="servico-card fi">
+      <div class="sc-img"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&q=80&fit=crop&crop=center" alt="Peeling" /></div>
+      <div class="sc-body"><div class="sc-icon">🧪</div><h3>Peeling Químico</h3><p>Renovação celular profunda para uma pele mais jovem e luminosa.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section id="diferenciais">
+  <div class="dif-layout">
+    <div class="dif-img-col fi">
+      <div class="dif-img-wrap">
+        <img src="https://images.unsplash.com/photo-1559599101-f09722fb4948?w=700&q=85&fit=crop&crop=center" alt="Equipe Bella Vita" />
+      </div>
+      <div class="dif-float"><div class="dfn">100%</div><div class="dfl">Satisfação garantida</div></div>
+    </div>
+    <div class="fi">
+      <div class="sec-label">Por que nos escolher</div>
+      <h2 class="sec-title" style="color:#fff;margin-bottom:2.5rem;">Nossos<br>Diferenciais</h2>
+      <div class="dif-items">
+        <div class="dif-item"><div class="dif-num">01</div><div class="dif-txt"><h4>Certificação Internacional</h4><p>Profissionais treinados com os mais altos padrões internacionais da estética avançada.</p></div></div>
+        <div class="dif-item"><div class="dif-num">02</div><div class="dif-txt"><h4>Produtos Premium Importados</h4><p>Apenas produtos importados de alta performance com registro na ANVISA e comprovação científica.</p></div></div>
+        <div class="dif-item"><div class="dif-num">03</div><div class="dif-txt"><h4>Atendimento 100% Humanizado</h4><p>Cada cliente é única. Personalizamos cada tratamento para o seu perfil e necessidade específica.</p></div></div>
+        <div class="dif-item"><div class="dif-num">04</div><div class="dif-txt"><h4>Resultado Desde a 1ª Sessão</h4><p>Tratamentos eficazes com resultado visível já na primeira visita. Tecnologia que realmente funciona.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos">
+  <div class="sec-head sec-head-center fi">
+    <div class="sec-label">Quem já veio</div>
+    <h2 class="sec-title">O que nossas clientes dizem</h2>
+    <p class="sec-sub">Satisfação real de quem já viveu a experiência Bella Vita.</p>
+  </div>
+  <div class="dep-grid">
+    <div class="dep-card fi">
+      <div class="dep-stars">★★★★★</div>
+      <p class="dep-text">Fiz o preenchimento labial e amei o resultado! Muito natural e a profissional super atenciosa. Me senti acolhida do início ao fim. Já marquei o retorno!</p>
+      <div class="dep-author"><div class="dep-av">AP</div><div><div class="dep-name">Ana P.</div><div class="dep-via">via Google</div></div></div>
+    </div>
+    <div class="dep-card fi">
+      <div class="dep-stars">★★★★★</div>
+      <p class="dep-text">Melhor limpeza de pele que já fiz na vida! Saí renovada, com a pele brilhando. Com certeza voltarei todo mês. Super recomendo para todas as amigas!</p>
+      <div class="dep-author"><div class="dep-av">CM</div><div><div class="dep-name">Carla M.</div><div class="dep-via">via Google</div></div></div>
+    </div>
+    <div class="dep-card fi">
+      <div class="dep-stars">★★★★★</div>
+      <p class="dep-text">Ambiente lindo, atendimento impecável e resultado incrível. Já indiquei para todas as amigas! A clínica é um lugar que te faz sentir verdadeiramente especial.</p>
+      <div class="dep-author"><div class="dep-av">JR</div><div><div class="dep-name">Juliana R.</div><div class="dep-via">via Instagram</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section id="galeria">
+  <div class="sec-head fi"><div class="sec-label">Nossa clínica</div><h2 class="sec-title">Conheça nosso ambiente</h2></div>
+  <div class="galeria-strip fi">
+    <div><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80&fit=crop&crop=center" alt="Ambiente Bella Vita" /></div>
+    <div class="gal-col2">
+      <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=400&q=80&fit=crop&crop=top" alt="Tratamento facial" />
+      <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=400&q=80&fit=crop&crop=center" alt="Massagem" />
+    </div>
+    <div class="gal-col2">
+      <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&q=80&fit=crop&crop=center" alt="Laser" />
+      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&q=80&fit=crop&crop=top" alt="Sobrancelhas" />
+    </div>
+    <div><img src="https://images.unsplash.com/photo-1559599101-f09722fb4948?w=800&q=80&fit=crop&crop=center" alt="Equipe Bella Vita" /></div>
+  </div>
+</section>
+
+<!-- LOCALIZAÇÃO + MAPA -->
+<section id="localizacao">
+  <div class="loc-grid">
+    <div class="loc-info fi">
+      <div class="sec-label">Onde estamos</div>
+      <h2 class="sec-title">Venha nos<br>visitar</h2>
+      <p class="sec-sub">Localizada no coração do Jardim Paulista, de fácil acesso para toda a zona sul e centro de SP.</p>
+      <div class="loc-block">
+        <h5>📍 Endereço</h5>
+        <p>Rua das Orquídeas, 342 – Sala 12<br>Jardim Paulista, São Paulo – SP<br>CEP: 01401-000</p>
+      </div>
+      <div class="loc-block">
+        <h5>🕐 Horário de Funcionamento</h5>
+        <p>Segunda a Sexta: 9h às 19h<br>Sábado: 9h às 15h<br>Domingo: Fechado</p>
+      </div>
+      <div class="loc-block">
+        <h5>🗺️ Regiões Atendidas</h5>
+        <p>Jardim Paulista · Itaim Bibi · Moema<br>Vila Olímpia · Brooklin e região</p>
+      </div>
+      <div class="loc-block">
+        <h5>💳 Formas de Pagamento</h5>
+        <div class="pay-tags">
+          <span class="pay-tag">Pix</span>
+          <span class="pay-tag">Crédito 12x</span>
+          <span class="pay-tag">Débito</span>
+          <span class="pay-tag">Dinheiro</span>
+        </div>
+      </div>
+      <div class="loc-btns">
+        <a class="btn-wpp" href="https://wa.me/5511998743210?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avaliação%20gratuita." target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WhatsApp
+        </a>
+        <button class="btn-rota" onclick="calcularRota()">🗺️ Como Chegar</button>
+      </div>
+    </div>
+
+    <div class="loc-map-col">
+      <div id="rota-status"></div>
+
+      <!--
+        ════════════════════════════════════════════════════
+        INSTRUÇÃO PARA DEPLOY REAL:
+        Substitua o src do iframe abaixo pela URL real do
+        Google Maps Embed do endereço da clínica do cliente.
+
+        Como gerar:
+        1. Acesse maps.google.com
+        2. Pesquise o endereço exato
+        3. Clique em "Compartilhar" → "Incorporar mapa"
+        4. Copie o src do iframe gerado e cole aqui
+
+        Coordenadas fictícias usadas neste exemplo:
+        Jardim Paulista, São Paulo — lat -23.5646, lng -46.6558
+        ════════════════════════════════════════════════════
+      -->
+      <iframe
+        id="map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.1894320645!2d-46.6583!3d-23.5646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sJardim%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1699000000001!5m2!1spt-BR!2sbr"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Localização Clínica Estética Bella Vita"
+      ></iframe>
+
+      <div class="map-overlay-pin">
+        <span class="pin-icon">📍</span>
+        <div class="pin-text">
+          <strong>Clínica Bella Vita</strong>
+          <span>Rua das Orquídeas, 342 – Jardim Paulista</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="cta">
+  <div class="fi">
+    <div class="sec-label" style="color:rgba(255,255,255,0.7);">Comece hoje</div>
+    <h2 class="sec-title">Pronta para se transformar?</h2>
+    <p class="sec-sub">Agende agora sua avaliação gratuita e descubra o tratamento ideal para você.</p>
+    <a class="btn-white" href="https://wa.me/5511998743210?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avaliação%20gratuita." target="_blank" rel="noopener">💬 Agendar pelo WhatsApp</a>
+  </div>
+</section>
+
+<!-- RODAPÉ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:1rem;">
+        <div class="logo-mark">BV</div>
+        <div class="logo-text" style="color:rgba(255,255,255,0.8);">Bella Vita<span>Clínica Estética</span></div>
+      </div>
+      <p class="footer-desc">Beleza com ciência, cuidado e resultado.<br>Jardim Paulista, São Paulo – SP.</p>
+    </div>
+    <div class="fc">
+      <h5>Links Rápidos</h5>
+      <a href="#sobre">Sobre nós</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#localizacao">Localização</a>
+    </div>
+    <div class="fc">
+      <h5>Contato</h5>
+      <a href="https://wa.me/5511998743210" target="_blank" rel="noopener">(11) 99874-3210</a>
+      <a href="https://instagram.com/bellavita.estetica" target="_blank" rel="noopener">@bellavita.estetica</a>
+      <p>Seg–Sex: 9h–19h</p>
+      <p>Sáb: 9h–15h</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Clínica Estética Bella Vita. Todos os direitos reservados.</p>
+    <p>Desenvolvido com ❤️ em São Paulo</p>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a class="wpp-float" href="https://wa.me/5511998743210?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avaliação%20gratuita." target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+  /* Scroll nav */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50));
+
+  /* Fade in */
+  const obs = new IntersectionObserver(e => {
+    e.forEach(el => { if(el.isIntersecting){ el.target.classList.add('vis'); obs.unobserve(el.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+
+  /* Hamburger */
+  const ham = document.getElementById('ham');
+  const nl = document.getElementById('navlinks');
+  let open = false;
+  ham.addEventListener('click', () => {
+    open = !open;
+    nl.style.cssText = open
+      ? 'display:flex;flex-direction:column;position:fixed;top:76px;left:0;right:0;background:rgba(255,255,255,0.98);padding:1.5rem 6%;gap:1rem;z-index:199;border-bottom:1px solid rgba(183,110,121,0.15);backdrop-filter:blur(12px);'
+      : '';
+  });
+  nl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { open=false; nl.style.cssText=''; }));
+
+  /* ── BOTÃO COMO CHEGAR ── */
+  function calcularRota() {
+    const status = document.getElementById('rota-status');
+    /* Coordenadas do destino (clínica fictícia – Jardim Paulista, SP) */
+    const destLat = -23.5646;
+    const destLng = -46.6558;
+    const destEndereco = 'Rua das Orquídeas 342, Jardim Paulista, São Paulo, SP';
+
+    status.style.display = 'block';
+    status.textContent = '📍 Obtendo sua localização...';
+
+    if (!navigator.geolocation) {
+      /* Sem geolocalização: abre no Maps direto no endereço */
+      abrirMaps(null, null);
+      status.style.display = 'none';
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      pos => {
+        const { latitude, longitude } = pos.coords;
+        status.textContent = '✅ Rota calculada! Abrindo Maps...';
+
+        /* Atualiza iframe com rota origem → destino */
+        const mapEl = document.getElementById('map');
+        mapEl.src = `https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d30000!2d${(latitude+destLng)/2}!3d${(longitude+destLat)/2}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s!2s${latitude}%2C${longitude}!3m2!1d${latitude}!2d${longitude}!4m5!1s0x94ce59c8da0aa315%3A0x0!2s${encodeURIComponent(destEndereco)}!3m2!1d${destLat}!2d${destLng}!5e0!3m2!1spt-BR!2sbr!4v1699000000002!5m2!1spt-BR!2sbr`;
+
+        setTimeout(() => { status.style.display = 'none'; }, 2500);
+
+        /* Abre Google Maps nativo com rota */
+        abrirMaps(latitude, longitude);
+      },
+      err => {
+        /* Permissão negada: abre direto no endereço */
+        status.textContent = '🗺️ Abrindo no Google Maps...';
+        abrirMaps(null, null);
+        setTimeout(() => { status.style.display = 'none'; }, 1500);
+      },
+      { timeout: 8000, enableHighAccuracy: true }
+    );
+  }
+
+  function abrirMaps(origLat, origLng) {
+    const dest = encodeURIComponent('Rua das Orquídeas 342, Jardim Paulista, São Paulo, SP');
+    const url = (origLat && origLng)
+      ? `https://www.google.com/maps/dir/?api=1&origin=${origLat},${origLng}&destination=${dest}&travelmode=driving`
+      : `https://www.google.com/maps/search/?api=1&query=${dest}`;
+    window.open(url, '_blank');
+  }
+</script>
+
+</body>
+</html>
